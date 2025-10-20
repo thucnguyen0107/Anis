@@ -166,6 +166,11 @@ export type ShopifyFile = {
       url: string;
     };
   };
+  image: {
+    src: string;
+    url: string;
+    altText: string;
+  };
 };
 
 export type ShopifyProduct = {
