@@ -10,7 +10,13 @@ export async function FeaturedCollections() {
       (collection) => !collection.title.toLowerCase().includes('all')
     );
 
-  if (!ignoreAllCollection?.length) return null;
+  let collectionToShow = []
+  if (ignoreAllCollection?.length >= 3) {
+    collectionToShow = ignoreAllCollection.slice(0, 3);
+  } else {
+    collectionToShow = ignoreAllCollection;
+  }
+  if (!collectionToShow.length) return null;
 
   const skeleton = 'w-full h-full animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
 
@@ -33,7 +39,7 @@ export async function FeaturedCollections() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {ignoreAllCollection.map((collection) => (
+          {collectionToShow.map((collection) => (
             <Link key={collection.title} href={`/collections/${collection.handle}`} className="group relative overflow-hidden bg-muted">
               <Suspense fallback={<div className={skeleton} />}>
               <div className="aspect-[3/4] relative overflow-hidden">
