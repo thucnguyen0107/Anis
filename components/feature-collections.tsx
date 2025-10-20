@@ -38,7 +38,7 @@ export async function FeaturedCollections() {
               <Suspense fallback={<div className={skeleton} />}>
               <div className="aspect-[3/4] relative overflow-hidden">
                 <Image
-                  src={collection.image.src || "/placeholder.svg"}
+                  src={collection?.image?.src || ""}
                   alt={collection.title}
                   fill
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
