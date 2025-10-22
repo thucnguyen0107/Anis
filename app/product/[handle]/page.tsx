@@ -16,13 +16,6 @@ export async function generateMetadata({
   params: { handle: string };
 }): Promise<Metadata> {
   const product = await getProduct(params.handle);
-  
-  if (product) {
-    console.log(product.title); // Type-safe
-    product.media.edges.forEach((edge) => {
-      console.log(edge?.node?.sources); // URL của file GLB
-    });
-  }
 
   if (!product) return notFound();
 
@@ -59,7 +52,6 @@ export const revalidate = 60;
 
 export default async function ProductPage({ params }: { params: { handle: string } }) {
   const product = await getProduct(params.handle);
-  console.log("[API] product", product);
   
 
   if (!product) return notFound();

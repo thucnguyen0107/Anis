@@ -26,12 +26,12 @@ function ThreeItemGridItem({
           }
           priority={priority}
           alt={item.title}
-          label={{
-            position: size === 'full' ? 'center' : 'bottom',
-            title: item.title as string,
-            amount: item.priceRange.maxVariantPrice.amount,
-            currencyCode: item.priceRange.maxVariantPrice.currencyCode
-          }}
+          // label={{
+          //   position: size === 'full' ? 'center' : 'bottom',
+          //   title: item.title as string,
+          //   amount: item.priceRange.maxVariantPrice.amount,
+          //   currencyCode: item.priceRange.maxVariantPrice.currencyCode
+          // }}
         />
       </Link>
     </div>
@@ -53,17 +53,20 @@ export async function ThreeItemGrid({ handle }: { handle: string }) {
     src: collection?.image?.src
   };
 
-  if (!products[0] || !products[1] || !products[2]) return null;
+  if (!products[0] || !products[1] || !products[2] || !products[3]) return null;
 
-  const [firstProduct, secondProduct, thirdProduct] = products;
+  const [firstProduct, secondProduct, thirdProduct, mobileProduct] = products;
 
   return (
-    <div>
-      <p className="mx-auto text-center my-8 font-serif text-4xl lg:text-5xl font-light mb-4 text-balance">{collection?.title || 'Hot Trending'}</p>
-      <section className="mx-auto grid max-w-screen-2xl gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2">
+    <div className='py-16'>
+      <p className="font-serif text-4xl lg:text-5xl font-light mb-4 text-balance text-center">{collection?.title || 'Hot Trending'}</p>
+      <section className="mx-auto grid max-w-screen-2xl gap-4 px-4 pb-4 grid-cols-2 md:grid-cols-6 md:grid-rows-2">
         <ThreeItemGridItem size="full" item={firstProduct} priority={true} />
         <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
         <ThreeItemGridItem size="half" item={thirdProduct} />
+        <div className="md:hidden">
+          <ThreeItemGridItem size="half" item={mobileProduct} />
+        </div>
       </section>
       <div className="flex justify-center mb-8">
         <Link

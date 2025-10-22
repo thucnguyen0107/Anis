@@ -1,4 +1,5 @@
 import { BrandStory } from 'components/brand-story';
+import { Carousel } from 'components/carousel';
 import { FeaturedCollections } from 'components/feature-collections';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import { HeroSection } from 'components/hero-section';
@@ -16,12 +17,11 @@ export default async function HomePage() {
     <>
       {/* <VideoHero/> */}
       <HeroSection />
-      <div className='my-8'/>
       <ThreeItemGrid handle="new-arrival" />
-      {/* <Carousel />
-      <Hero/> */}
+      <Carousel handle='hot-trending'/>
+      {/* <Hero/> */}
+      {/* <CollectionsCarousel/> */}
       {/* <ThreeItemGrid handle="hot-trending" /> */}
-      {/* <CollectionsCarousel /> */}
       <FeaturedCollections />
       <BrandStory/>
       <Footer />

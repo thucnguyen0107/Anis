@@ -397,8 +397,6 @@ export async function getCollectionProductsAndCollectionInfo({
     return {products: [], collection: null};
   }
   const collectionInfo = res.body?.data?.collection
-  console.log('[API] collectionInfo', collectionInfo, res.body?.data?.collection);
-  
 
   const products = reshapeProducts(removeEdgesAndNodes(res.body.data.collection.products));
 

@@ -1,7 +1,6 @@
 'use client';
 
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 
 export function HeaderHero({
   title,
@@ -12,11 +11,6 @@ export function HeaderHero({
   description: string;
   src: string;
 }) {
-const paramsData = useSearchParams();
-  const titleA = paramsData.get('title');
-  const srcA = paramsData.get('src');
-  const descriptionA = paramsData.get('description');
-  console.log('[AAAA] ', titleA, srcA, descriptionA);
   
   const imageSrc = src
     ? src
