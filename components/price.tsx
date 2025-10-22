@@ -17,29 +17,23 @@ const Price = ({
     {saleAmount ? (
       <>
         <span className="inline-block line-through opacity-70">
-          {`${new Intl.NumberFormat(undefined, {
-            style: 'currency',
-            currency: currencyCode,
-            currencyDisplay: 'narrowSymbol'
-          }).format(parseFloat(saleAmount))}`}
+          {saleAmount}
         </span>
         <span className="mx-2 inline-block font-semibold">
-          {`${new Intl.NumberFormat(undefined, {
-            style: 'currency',
-            currency: currencyCode,
-            currencyDisplay: 'narrowSymbol'
-          }).format(parseFloat(amount))}`}
+          {amount}
         </span>
       </>
     ) : (
-      `${new Intl.NumberFormat(undefined, {
-        style: 'currency',
-        currency: currencyCode,
-        currencyDisplay: 'narrowSymbol'
-      }).format(parseFloat(amount))}`
+      amount
     )}
     <span className={clsx('ml-1 inline', currencyCodeClassName)}>{`${currencyCode}`}</span>
   </p>
 );
+
+// {`${new Intl.NumberFormat(undefined, {
+//             style: 'currency',
+//             currency: currencyCode,
+//             currencyDisplay: 'narrowSymbol'
+//           }).format(parseFloat(saleAmount))}`}
 
 export default Price;

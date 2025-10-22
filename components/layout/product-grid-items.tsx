@@ -1,6 +1,7 @@
 import Grid from 'components/grid';
 import { GridTileImage } from 'components/grid/tile';
 import { Product } from 'lib/shopify/types';
+import { convertPrice } from 'lib/utils';
 import Link from 'next/link';
 
 export default function ProductGridItems({ products }: { products: Product[] }) {
@@ -22,7 +23,7 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
             />
             <div className="space-y-1 mt-2">
                 <h3 className="font-medium">{product.title}</h3>
-                <p className="text-sm">{parseFloat(product.priceRange.maxVariantPrice.amount)} {product.priceRange.maxVariantPrice.currencyCode}</p>
+                <p className="text-sm">{convertPrice(product.priceRange.maxVariantPrice.amount)} {product.priceRange.maxVariantPrice.currencyCode}</p>
             </div>
           </Link>
         </Grid.Item>

@@ -37,3 +37,10 @@ export const validateEnvironmentVariables = () => {
     );
   }
 };
+
+export const convertPrice = (amount: string | number): string => {
+  const n = typeof amount === 'string' ? parseFloat(amount) : amount;
+  if (!isFinite(n)) return '0';
+  const rounded = Math.round(n);
+  return rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+};
