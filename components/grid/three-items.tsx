@@ -59,7 +59,7 @@ export async function ThreeItemGrid({ handle }: { handle: string }) {
 
   return (
     <div className='py-16'>
-      <p className="font-serif text-4xl lg:text-5xl font-light mb-4 text-balance text-center">{collection?.title || 'Hot Trending'}</p>
+      <p className="font-sans text-base font-normal mb-4 text-balance text-center">{collection?.title || 'Hot Trending'}</p>
       <section className="mx-auto grid max-w-screen-2xl gap-4 px-4 pb-4 grid-cols-2 md:grid-cols-6 md:grid-rows-2">
         <ThreeItemGridItem size="full" item={firstProduct} priority={true} />
         <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
@@ -73,7 +73,7 @@ export async function ThreeItemGrid({ handle }: { handle: string }) {
           className="flex transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           href={{ pathname: `/collections/${handle}`, query: data }}
         >
-          <p className="my-4 mr-1 text-center text-base font-semibold">See more</p>
+          <p className="my-4 mr-1 text-center text-base font-normal">See more</p>
           <ArrowRightIcon className="my-4 size-5 text-black" />
         </Link>
       </div>

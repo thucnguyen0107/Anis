@@ -26,10 +26,10 @@ export async function FeaturedCollections() {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-end justify-between mb-12">
+        <div className="hidden md:flex items-end justify-between mb-12">
           <div>
-            <h2 className="font-serif text-4xl lg:text-5xl font-light mb-4 text-balance">Featured Collections</h2>
-            <p className="text-muted-foreground text-lg">Curated selections for every occasion</p>
+            <h2 className="font-sans text-base lg:text-2xl font-normal mb-4 text-balance">New Collections</h2>
+            <p className="text-muted-foreground text-sm">Curated selections for every occasion</p>
           </div>
           <Link
             href="/collections"
@@ -39,6 +39,8 @@ export async function FeaturedCollections() {
             <ArrowRightIcon className="h-4 w-4" />
           </Link>
         </div>
+
+        <h2 className="md:hidden text-base font-sans font-normal mb-4 text-balance text-center">New Collections</h2>
 
         <div className="hidden md:grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
           {collectionToShow.map((collection) => (
@@ -55,7 +57,7 @@ export async function FeaturedCollections() {
               </div>
               </Suspense>
               <div className="absolute bottom-0 left-0 right-0 p-6 text-background translate-y-2 group-hover:translate-y-0 transition-transform">
-                <h3 className="font-serif text-2xl mb-2 text-white">{collection.title}</h3>
+                <h3 className="font-sans text-2xl mb-2 text-white">{collection.title}</h3>
                 <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white">
                   {collection.description}
                 </p>
@@ -79,7 +81,7 @@ export async function FeaturedCollections() {
               </div>
               </Suspense>
               <div className="absolute bottom-0 left-0 right-0 p-6 text-background translate-y-2 group-hover:translate-y-0 transition-transform">
-                <h3 className="font-serif text-2xl mb-2 text-white">{collection.title}</h3>
+                <h3 className="font-sans text-2xl mb-2 text-white">{collection.title}</h3>
                 <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white">
                   {collection.description}
                 </p>

@@ -20,7 +20,7 @@ export async function CollectionsCarousel() {
 
   return (
     <div>
-    <h2 className="mx-auto my-4 text-2xl font-bold font-serif text-center">Collections</h2>
+    <h2 className="mx-auto my-4 text-2xl font-bold font-sans text-center">Collections</h2>
     <div className="scrollbar-hide w-full overflow-x-auto pb-6 pt-1">
       <ul className="flex animate-carousel gap-4">
         {carouselCollections.map((collection, i) => (
@@ -45,7 +45,7 @@ export async function CollectionsCarousel() {
           className="flex transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           href={"/collections"}
         >
-          <p className="my-4 mr-1 text-center text-base font-semibold">See more</p>
+          <p className="my-4 mr-1 text-center text-base font-normal">See more</p>
           <ArrowRightIcon className="my-4 size-5 text-black" />
         </Link>
     </div>

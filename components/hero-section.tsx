@@ -18,7 +18,7 @@ export async function HeroSection() {
 
       {/* Content */}
       {/* <div className="relative z-10 container mx-auto px-4 text-center">
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-6 tracking-tight text-balance">
+        <h1 className="font-sans text-5xl md:text-7xl lg:text-8xl font-normal mb-6 tracking-tight text-balance">
           Elevate Your Style
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-balance">

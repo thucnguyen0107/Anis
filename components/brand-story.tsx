@@ -22,7 +22,7 @@ export async function BrandStory() {
           <div className="space-y-6">
             <div className="space-y-4">
               <p className="text-muted-foreground text-sm tracking-widest">OUR STORY</p>
-              <h2 className="text-balance font-serif text-4xl font-light lg:text-5xl">
+              <h2 className="text-balance font-sans text-2xl font-normal lg:text-2xl">
                 Crafting Timeless Elegance
               </h2>
             </div>

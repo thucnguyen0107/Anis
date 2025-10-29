@@ -22,17 +22,20 @@ export default function CollectionGridItems({ collections }: { collections: Shop
           >
             <GridTileImage
               alt={collection.title}
-              label={{
-                title: collection.title,
-                amount: '0',
-                currencyCode: 'VND'
-              }}
+              // label={{
+              //   title: collection.title,
+              //   amount: '0',
+              //   currencyCode: 'VND'
+              // }}
               isCollection={true}
               src={collection?.image?.src}
               fill
               sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
             />
           </Link>
+          <div className="space-y-1 mt-2">
+            <h3 className="font-medium">{collection.title}</h3>
+          </div>
         </Grid.Item>
     )})}
     </>

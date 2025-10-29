@@ -25,7 +25,7 @@ export async function Carousel({ handle }: { handle: string }) {
 
   return (
     <div className="scrollbar-hide w-full overflow-x-auto pb-6 pt-1 py-16">
-      <h2 className="font-serif text-4xl lg:text-5xl font-light mb-4 text-balance text-center">{collection?.title}</h2>
+      <h2 className="text-base font-sans font-normal mb-4 text-balance text-center">{collection?.title}</h2>
       <ul className="flex animate-carousel gap-4 pb-4">
         {carouselProducts.map((product, i) => (
           <li
@@ -53,7 +53,7 @@ export async function Carousel({ handle }: { handle: string }) {
           className="flex transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           href={{ pathname: `/collections/${handle}`, query: data }}
         >
-          <p className="my-4 mr-1 text-center text-base font-semibold">See more</p>
+          <p className="my-4 mr-1 text-center text-base font-normal">See more</p>
           <ArrowRightIcon className="my-4 size-5 text-black" />
         </Link>
       </div>

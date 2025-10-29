@@ -10,7 +10,7 @@ export default async function Navbar() {
   const menu = await getMenu('anis-menu');
 
   return (
-    <nav>
+    <nav className="bg-white sticky top-0 z-50 p-4">
     <div className="hidden md:block my-4">
       <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
         {/* <LogoSquare /> */}

@@ -45,7 +45,7 @@ export default function FooterMenu({ menu, header }: { menu: Menu[], header: str
 
   return (
     <nav>
-      <p className="gap-2 p-2 md:pt-1 text-lg text-black font-serif font-bold">{header}</p>
+      <p className="gap-2 p-2 md:pt-1 text-lg text-black font-sans font-bold">{header}</p>
       <ul>
         {menu.map((item: Menu) => {
           return <FooterMenuItem key={item.title} item={item} />;
