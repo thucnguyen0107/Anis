@@ -1,9 +1,10 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import clsx from 'clsx';
 import { getCollectionProductsAndCollectionInfo } from 'lib/shopify';
 import Link from 'next/link';
 import { GridTileImage } from './grid/tile';
 
-export async function Carousel({ handle }: { handle: string }) {
+export async function Carousel({ handle, isAutoScroll }: { handle: string, isAutoScroll: boolean }) {
   // Collections that start with `hidden-*` are hidden from the search page.
   const res = await getCollectionProductsAndCollectionInfo({
     collection: handle || 'new-arrival'
@@ -20,13 +21,14 @@ export async function Carousel({ handle }: { handle: string }) {
 
   if (!products?.length) return null;
 
-  // Purposefully duplicating products to make the carousel loop and not run out of products on wide screens.
-  const carouselProducts = [...products, ...products, ...products];
+  // If auto-scroll is enabled, duplicate products so carousel loops.
+  // If auto-scroll is disabled, show only the first 5 items.
+  const carouselProducts = isAutoScroll ? [...products, ...products, ...products] : products.slice(0, 5);
 
   return (
-    <div className="scrollbar-hide w-full overflow-x-auto pb-6 pt-1 py-16">
-      <h2 className="text-base font-sans font-normal mb-4 text-balance text-center">{collection?.title}</h2>
-      <ul className="flex animate-carousel gap-4 pb-4">
+    <div className={clsx("scrollbar-hide w-full overflow-x-auto pb-6 pt-1 py-16", !isAutoScroll && "container mx-auto px-4 lg:px-8")}>
+      <h2 className="mb-4 text-balance font-sans text-2xl font-normal lg:text-2xl text-center">{collection?.title}</h2>
+      <ul className={clsx("flex gap-4 pb-4", isAutoScroll && "animate-carousel")}>
         {carouselProducts.map((product, i) => (
           <li
             key={`${product.handle}${i}`}

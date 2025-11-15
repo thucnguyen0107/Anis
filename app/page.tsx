@@ -17,8 +17,8 @@ export default async function HomePage() {
       {/* <VideoHero/> */}
       <HeroSection />
       {/* <ThreeItemGrid handle="new-arrival" /> */}
-      <Carousel handle='new-arrival'/>
-      <Carousel handle='hot-trending'/>
+      <Carousel handle='new-arrival' isAutoScroll={false}/>
+      <Carousel handle='hot-trending' isAutoScroll={true}/>
       {/* <Hero/> */}
       {/* <CollectionsCarousel/> */}
       {/* <ThreeItemGrid handle="hot-trending" /> */}

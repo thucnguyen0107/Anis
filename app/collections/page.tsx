@@ -5,7 +5,7 @@ import { getCollections } from 'lib/shopify';
 const CollectionPage = async () => {
   const collections = await getCollections();
   const ignoreAllCollection = collections.filter(
-    (collection) => !collection.title.toLowerCase().includes('all')
+    (collection) => collection.title.toLowerCase() !== 'all'
   );
 
   return (
