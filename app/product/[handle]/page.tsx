@@ -8,6 +8,7 @@ import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
+import { convertPrice } from 'lib/utils';
 import Link from 'next/link';
 import { Suspense } from 'react';
 export async function generateMetadata({
@@ -128,7 +129,7 @@ async function RelatedProducts({ id }: { id: string }) {
                 alt={product.title}
                 label={{
                   title: product.title,
-                  amount: product.priceRange.maxVariantPrice.amount,
+                  amount: convertPrice(product.priceRange.maxVariantPrice.amount),
                   currencyCode: product.priceRange.maxVariantPrice.currencyCode
                 }}
                 src={product.featuredImage?.url}

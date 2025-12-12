@@ -11,7 +11,13 @@ module.exports = {
         protocol: 'https',
         hostname: 'cdn.shopify.com',
         pathname: '/s/files/**'
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.vietqr.io',
+        port: '',
+        pathname: '/image/**',
+      },
     ]
   },
   async redirects() {

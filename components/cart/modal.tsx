@@ -5,7 +5,7 @@ import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import Price from 'components/price';
 import { DEFAULT_OPTION } from 'lib/constants';
 import type { Cart } from 'lib/shopify/types';
-import { createUrl } from 'lib/utils';
+import { convertPrice, createUrl } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useEffect, useRef, useState } from 'react';
@@ -136,7 +136,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                             <div className="flex h-16 flex-col justify-between">
                               <Price
                                 className="flex justify-end space-y-2 text-right text-sm"
-                                amount={item.cost.totalAmount.amount}
+                                amount={convertPrice(item.cost.totalAmount.amount)}
                                 currencyCode={item.cost.totalAmount.currencyCode}
                               />
                               <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700">
@@ -157,7 +157,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       <p>Taxes</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
-                        amount={cart.cost.totalTaxAmount.amount}
+                        amount={convertPrice(cart.cost.totalTaxAmount.amount)}
                         currencyCode={cart.cost.totalTaxAmount.currencyCode}
                       />
                     </div>
@@ -169,17 +169,18 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       <p>Total</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
-                        amount={cart.cost.totalAmount.amount}
+                        amount={convertPrice(cart.cost.totalAmount.amount)}
                         currencyCode={cart.cost.totalAmount.currencyCode}
                       />
                     </div>
                   </div>
-                  <a
-                    // href={cart.checkoutUrl}
+                  <Link
+                    href={{ pathname: '/checkout', query: { total: cart.cost.totalAmount.amount }}}
+                    onClick={closeCart}
                     className="block w-full rounded-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
                   >
                     Proceed to Checkout
-                  </a>
+                  </Link>
                 </div>
               )}
             </Dialog.Panel>
